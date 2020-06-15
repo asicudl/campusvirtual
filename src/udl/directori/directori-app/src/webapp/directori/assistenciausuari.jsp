@@ -47,4 +47,4 @@
 		</h:form>
 	</div>
 </f:view>
-<script>window.parent.postMessage('hello','http://credencials.udl.cat');</script>
+<script>window.parent.postMessage('hello','https://credencials.udl.cat');</script>

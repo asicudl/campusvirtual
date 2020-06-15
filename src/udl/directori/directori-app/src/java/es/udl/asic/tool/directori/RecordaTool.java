@@ -234,7 +234,7 @@ public class RecordaTool{
 			String token = accountService.creaToken (username);
 			
 			String cos = messageBundle.getString ("canviclaubodycap") +"\n";
-			cos = cos + "http://credencials.udl.cat/valida.php?token=" +token;  
+			cos = cos + "https://credencials.udl.cat/valida.php?token=" +token;  
 			cos = cos + messageBundle.getString ("canviclaubodypeu");
 			
 			boolean sent = false;
