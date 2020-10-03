@@ -250,13 +250,13 @@ public abstract class DbAuthzGroupService extends BaseAuthzGroupService implemen
 
             refreshQueue = Collections.synchronizedMap(new HashMap<String, AuthzGroup>());
 
-            refreshScheduler = Executors.newSingleThreadScheduledExecutor();
+           /* refreshScheduler = Executors.newSingleThreadScheduledExecutor();
             refreshScheduler.scheduleWithFixedDelay(
                 new RefreshAuthzGroupTask(),
                 120, // minimally wait 2 mins for sakai to start
                 refreshTaskInterval, // delay before running again
                 TimeUnit.SECONDS
-            );
+            );*/
 		}
 		catch (Exception t)
 		{
@@ -783,6 +783,14 @@ public abstract class DbAuthzGroupService extends BaseAuthzGroupService implemen
 			completeGet(null, realm, false);
 		}
 
+		private void stackT() {
+			
+    		for (StackTraceElement ste : Thread.currentThread().getStackTrace()) {
+   				 M_log.debug(ste.toString());
+			}
+		}
+
+
 		/**
 		 * Complete the read process once the basic realm info has been read
 		 *
@@ -795,6 +803,12 @@ public abstract class DbAuthzGroupService extends BaseAuthzGroupService implemen
 		 */
 		protected void completeGet(Connection conn, final BaseAuthzGroup realm, boolean updateProvider)
 		{
+			
+			if (M_log.isDebugEnabled()) {	
+				M_log.debug("STrace: completeGet()");
+				stackT();
+			}
+			
 			if (realm == null) return;
 
 			if (!realm.m_lazy) return;
