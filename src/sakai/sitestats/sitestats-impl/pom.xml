@@ -174,7 +174,7 @@
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <!-- Stuck at 4.4 https://jira.springsource.org/browse/SPR-5145 -->
-            <version>4.11</version>
+            <version>4.13.1</version>
         </dependency>
         <!-- <dependency> <groupId>com.oracle</groupId> <artifactId>ojdbc14</artifactId>
             <scope>test</scope> </dependency> -->
